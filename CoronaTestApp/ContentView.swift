@@ -10,6 +10,10 @@ import SwiftUI
 struct ContentView: View {
     @AppStorage ("isDarkMode") private var isDarkMode = false
     
+    private let gridRows = [
+        GridItem(.flexible())
+    ]
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -23,7 +27,27 @@ struct ContentView: View {
                 ScrollView {
                     VStack {
                         Spacer().frame(height: 30)
-                        HeaderView()
+                        ScrollView(.horizontal) {
+                            LazyHGrid(rows: gridRows) {
+                                ForEach(0...6, id: \.self) { _ in
+                                    ZStack {
+                                        LinearGradient(gradient: Gradient(colors: [Color("InfoViewDarkerColor"),
+                                                                                   Color("InfoViewLighterColor")]),
+                                                       startPoint: .leading,
+                                                       endPoint: .trailing)
+                                        .frame(width: 160.0, height: 88.0)
+                                        .cornerRadius(42)
+                                        
+                                        
+                                        Text("RUS")
+                                            .foregroundColor( Color("CommonTextColor"))
+                                            .font(.custom("Kefa", size: 24))
+                                            
+                                    }
+                                }
+                            }
+                        }.padding()
+                    
                         StatsPanelView()
                         Spacer()
                     }
