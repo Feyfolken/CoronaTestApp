@@ -7,12 +7,9 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct GeneralStatsScreen: View {
     @AppStorage ("isDarkMode") private var isDarkMode = false
-    
-    private let gridRows = [
-        GridItem(.flexible())
-    ]
+    @State var covidStatsData: CovidStatisticData = CovidStatisticsService.mockCovidStatsData
     
     var body: some View {
         NavigationView {
@@ -27,28 +24,8 @@ struct ContentView: View {
                 ScrollView {
                     VStack {
                         Spacer().frame(height: 30)
-                        ScrollView(.horizontal) {
-                            LazyHGrid(rows: gridRows) {
-                                ForEach(0...6, id: \.self) { _ in
-                                    ZStack {
-                                        LinearGradient(gradient: Gradient(colors: [Color("InfoViewDarkerColor"),
-                                                                                   Color("InfoViewLighterColor")]),
-                                                       startPoint: .leading,
-                                                       endPoint: .trailing)
-                                        .frame(width: 160.0, height: 88.0)
-                                        .cornerRadius(42)
-                                        
-                                        
-                                        Text("RUS")
-                                            .foregroundColor( Color("CommonTextColor"))
-                                            .font(.custom("Kefa", size: 24))
-                                            
-                                    }
-                                }
-                            }
-                        }.padding()
-                    
-                        StatsPanelView()
+                        FavoritesGrid(covidStatsData: $covidStatsData)
+                        StatsPanelView(covidStatsData: $covidStatsData)
                         Spacer()
                     }
                 }
@@ -62,13 +39,16 @@ struct ContentView: View {
                 }) {
                     HStack(spacing: 10) {
                         Image("moon")
-                        
                     }
                 }
             }
             .onAppear {
                 UINavigationBarAppearance()
                     .setNabBarColors()
+                
+                CovidStatisticsService.getTotalCovidStats { (covidStatsData) in
+                    self.covidStatsData = covidStatsData
+                }
             }
             
         }.preferredColorScheme(isDarkMode ? .dark : .light)
@@ -78,7 +58,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ContentView()
+            GeneralStatsScreen()
         }
     }
 }

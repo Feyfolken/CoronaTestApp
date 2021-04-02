@@ -11,7 +11,7 @@ import SwiftUI
 struct CoronaTestAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GeneralStatsScreen()
         }
     }
 }
