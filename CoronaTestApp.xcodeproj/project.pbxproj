@@ -21,6 +21,7 @@
 		3E56A62B25DFAF9800589636 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E56A62A25DFAF9800589636 /* Preview Assets.xcassets */; };
 		3E56A63525DFD38400589636 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E56A63425DFD38400589636 /* HeaderView.swift */; };
 		3E56A63D25E011A900589636 /* StatsInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E56A63C25E011A900589636 /* StatsInfoView.swift */; };
+		3E8F71C42618866400907D34 /* CountryDetailsStatsPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F71C32618866400907D34 /* CountryDetailsStatsPanelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		3E56A62C25DFAF9800589636 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E56A63425DFD38400589636 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		3E56A63C25E011A900589636 /* StatsInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsInfoView.swift; sourceTree = "<group>"; };
+		3E8F71C32618866400907D34 /* CountryDetailsStatsPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsStatsPanelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 				3E4BD12B25E152CC0041330D /* StatsPanelView.swift */,
 				3E56A63C25E011A900589636 /* StatsInfoView.swift */,
 				3E56A63425DFD38400589636 /* HeaderView.swift */,
+				3E8F71C32618866400907D34 /* CountryDetailsStatsPanelView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				3E53508C25F3AD28004EEFB4 /* NavigationBarExtension.swift in Sources */,
 				3E53509525F3CFD7004EEFB4 /* CovidStatisticData.swift in Sources */,
 				3E56A63D25E011A900589636 /* StatsInfoView.swift in Sources */,
+				3E8F71C42618866400907D34 /* CountryDetailsStatsPanelView.swift in Sources */,
 				3E53509925F3D149004EEFB4 /* GlobalCovidStatistic.swift in Sources */,
 				3E53509C25F3D8CE004EEFB4 /* CountryCovidStatistic.swift in Sources */,
 				3E45CC6B2617609800B146FB /* FavoritesGrid.swift in Sources */,

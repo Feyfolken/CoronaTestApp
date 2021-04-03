@@ -10,6 +10,8 @@ import SwiftUI
 struct CountryDetailsStatsScreen: View {
     @AppStorage ("isDarkMode") private var isDarkMode = false
     
+    @State var countryCovidStats: CountryCovidStatistic
+    
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color("AppBackgroundDarkerColor"),
@@ -20,26 +22,16 @@ struct CountryDetailsStatsScreen: View {
                 .edgesIgnoringSafeArea(.bottom)
             
             ScrollView {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 42, style: .continuous)
-                        .frame(width: 385.0, height: 558.0)
-                        .foregroundColor(Color("StatsPanelColor"))
-                        .shadow(color: isDarkMode ? Color("InfoViewDarkerColor") : .gray , radius: 5)
-                    
-                    VStack {
-                        Text("NEW")
-                        
-                    }
-                }
+                CountryDetailsStatsPanelView(countryCovidStats: $countryCovidStats)
             }
-        }
+        }.navigationTitle("\(countryCovidStats.country)")
     }
 }
 
 struct CountryDetailsStatsScreen_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CountryDetailsStatsScreen()
+            CountryDetailsStatsScreen(countryCovidStats: CovidStatisticsService.mockCovidStatsData.countries.first!)
         }
     }
 }

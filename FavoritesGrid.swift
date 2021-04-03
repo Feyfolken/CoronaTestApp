@@ -19,7 +19,7 @@ struct FavoritesGrid: View {
         ScrollView(.horizontal) {
             LazyHGrid(rows: gridRows) {
                 ForEach(favoriteCountryCodesList, id: \.self) { countryCode in
-                    FavoriteGridCell(countryCode: countryCode)
+                    FavoriteGridCell(countryCode: countryCode, countryCovidStats: covidStatsData.countries.first(where: {countryCode == $0.countryCode}) ?? CovidStatisticsService.mockCovidStatsData.countries.first! )
                 }
             }
         }.padding()
@@ -28,9 +28,11 @@ struct FavoritesGrid: View {
 
 struct FavoriteGridCell: View {
     var countryCode: String
+    var countryCovidStats: CountryCovidStatistic
+    
     var body: some View {
         NavigationLink(
-            destination: CountryDetailsStatsScreen(),
+            destination: CountryDetailsStatsScreen(countryCovidStats: countryCovidStats),
             label: {
                 ZStack {
                     LinearGradient(gradient: Gradient(colors: [Color("InfoViewDarkerColor"),
@@ -39,7 +41,6 @@ struct FavoriteGridCell: View {
                                    endPoint: .bottomTrailing)
                         .frame(width: 160.0, height: 88.0)
                         .cornerRadius(42)
-                    
                     
                     Text(countryCode)
                         .foregroundColor( Color("CommonTextColor"))

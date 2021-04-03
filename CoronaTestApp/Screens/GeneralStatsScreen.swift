@@ -30,7 +30,7 @@ struct GeneralStatsScreen: View {
                     }
                 }
             }
-            .navigationBarTitle("Hi, Vadim")
+            .navigationBarTitle("World stats")
             
             .toolbar {
                 Button(action: {
@@ -51,7 +51,10 @@ struct GeneralStatsScreen: View {
                 }
             }
             
-        }.preferredColorScheme(isDarkMode ? .dark : .light)
+        }
+        .preferredColorScheme(isDarkMode ? .dark : .light)
+        .accentColor(Color("CommonTextColor"))
+        .font(.custom("Kefa", size: 28))
     }
 }
 

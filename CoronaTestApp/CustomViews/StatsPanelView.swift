@@ -10,13 +10,22 @@ import SwiftUI
 struct StatsPanelView: View {
     @Binding var covidStatsData: CovidStatisticData
     @AppStorage ("isDarkMode") private var isDarkMode = false
-    
+    @State private var shadowRadius: CGFloat = 3
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 42, style: .continuous)
                 .frame(width: 385.0, height: 558.0)
                 .foregroundColor(Color("StatsPanelColor"))
-                .shadow(color: isDarkMode ? Color("InfoViewDarkerColor") : .gray , radius: 5)
+                .shadow(color: Color("InfoViewDarkerColor"), radius: shadowRadius)
+                .onAppear(perform: {
+                    let baseAnimation = Animation.easeOut(duration: 0.7)
+                    let repeated = baseAnimation.repeatForever(autoreverses: true)
+                    
+                    return withAnimation(repeated) {
+                        shadowRadius = 10
+                    }
+                })
             
             VStack {
                 HStack {

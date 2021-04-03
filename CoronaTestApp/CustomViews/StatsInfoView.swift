@@ -43,12 +43,16 @@ struct StatsInfoView: View {
                     .font(.system(size: fontSize, weight: .bold, design: .rounded))
                     .frame(width: titleTextFrameSize.width, height: titleTextFrameSize.height)
                     .foregroundColor(Color("CommonTextColor"))
+                    .minimumScaleFactor(0.5)
+                    .lineLimit(1)
 
                 Text(valueText)
                     .font(.custom("Kefa", size: fontSize))
                     .frame(width: valueTextFrameSize.width, height: valueTextFrameSize.height)
                     .foregroundColor(Color("CommonTextColor"))
-                
+                    .minimumScaleFactor(0.5)
+                    .lineLimit(1)
+
                 
             }
         }

@@ -21,12 +21,12 @@ final class CovidStatisticsService {
                                                                        country: "",
                                                                        countryCode: "",
                                                                        slug: "",
-                                                                       newConfirmed: 0,
-                                                                       totalConfirmed: 0,
-                                                                       newDeaths: 0,
-                                                                       totalDeaths: 0,
-                                                                       newRecovered: 0,
-                                                                       totalRecovered: 0,
+                                                                       newConfirmed: 5090,
+                                                                       totalConfirmed: 100953,
+                                                                       newDeaths: 2002,
+                                                                       totalDeaths: 40090,
+                                                                       newRecovered: 6041,
+                                                                       totalRecovered: 60293,
                                                                        date: "")
     
     public static let mockCovidStatsData = CovidStatisticData(id: "",
