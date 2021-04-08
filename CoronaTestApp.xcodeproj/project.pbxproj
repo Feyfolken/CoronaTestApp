@@ -118,11 +118,9 @@
 		3E56A62225DFAF9200589636 /* CoronaTestApp */ = {
 			isa = PBXGroup;
 			children = (
-				3E45CC7126176D8000B146FB /* Screens */,
+				3E987EE9261AFBE9007B4DB9 /* Common */,
+				3E987EE8261AFBCE007B4DB9 /* PresentationLayer */,
 				3E53509E25F3E0B3004EEFB4 /* Networking */,
-				3E56A62325DFAF9200589636 /* CoronaTestAppApp.swift */,
-				3E53508525F3A8B7004EEFB4 /* Extensions */,
-				3E56A63825E0075800589636 /* CustomViews */,
 				3E56A62725DFAF9800589636 /* Assets.xcassets */,
 				3E56A62C25DFAF9800589636 /* Info.plist */,
 				3E56A62925DFAF9800589636 /* Preview Content */,
@@ -148,6 +146,24 @@
 				3E8F71C32618866400907D34 /* CountryDetailsStatsPanelView.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		3E987EE8261AFBCE007B4DB9 /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				3E45CC7126176D8000B146FB /* Screens */,
+				3E56A63825E0075800589636 /* CustomViews */,
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		3E987EE9261AFBE9007B4DB9 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3E56A62325DFAF9200589636 /* CoronaTestAppApp.swift */,
+				3E53508525F3A8B7004EEFB4 /* Extensions */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
