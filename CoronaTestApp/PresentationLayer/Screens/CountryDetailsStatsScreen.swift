@@ -21,7 +21,7 @@ struct CountryDetailsStatsScreen: View {
                 .edgesIgnoringSafeArea(.bottom)
             
             ScrollView {
-                Spacer()
+                Spacer().frame(height: 50)
                 CurrentDateView()
                 CountryDetailsStatsPanelView(countryCovidStats: $countryCovidStats)
             }
@@ -38,26 +38,19 @@ struct CountryDetailsStatsScreen_Previews: PreviewProvider {
 }
 
 struct CurrentDateView: View {
-    @State var shadowRadius: CGFloat = 3
-
+    
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 42, style: .continuous)
-                .frame(width: 300.0, height: 108.0)
-                .foregroundColor(Color("StatsPanelColor"))
-                .shadow(color: Color("InfoViewDarkerColor") , radius: shadowRadius)
-                .onAppear(perform: {
-                    let baseAnimation = Animation.easeOut(duration: 0.7)
-                    let repeated = baseAnimation.repeatForever(autoreverses: true)
-                    
-                    return withAnimation(repeated) {
-                        shadowRadius = 10
-                    }
-                })
+            LinearGradient(gradient: Gradient(colors: [Color("InfoViewDarkerColor"),
+                                                        Color("InfoViewLighterColor")]),
+                            startPoint: .leading,
+                            endPoint: .trailing)
+                 .frame(width: 300, height: 108)
+                 .cornerRadius(42)
             
             Text(Date(), style: .date)
                 .font(.custom("Kefa", size: 28))
-                .foregroundColor(Color("InfoViewDarkerColor"))
+                .foregroundColor(Color("CommonTextColor"))
         }
     }
 }

@@ -12,8 +12,8 @@ extension UINavigationBarAppearance {
     func setNabBarColors() {
         configureWithTransparentBackground()
         
-        largeTitleTextAttributes = [.foregroundColor: UIColor.init(named: "CommonTextColor")]
-        titleTextAttributes = [.foregroundColor: UIColor.init(named: "CommonTextColor")]
+        largeTitleTextAttributes = [.foregroundColor: UIColor.init(named: "CommonTextColor")!]
+        titleTextAttributes = [.foregroundColor: UIColor.init(named: "CommonTextColor")!]
         backgroundColor = UIColor.init(named: "NavigationBarBackgroundColor")
         
         UINavigationBar.appearance().scrollEdgeAppearance = self

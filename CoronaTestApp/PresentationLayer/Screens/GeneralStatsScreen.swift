@@ -33,13 +33,21 @@ struct GeneralStatsScreen: View {
             .navigationBarTitle("World stats")
             
             .toolbar {
-                Button(action: {
-                    isDarkMode.toggle()
-                    
-                }) {
-                    HStack(spacing: 10) {
-                        Image("moon")
+                HStack {
+                    Button(action: {
+                        isDarkMode.toggle()
+                        
+                    }) {
+                        HStack(spacing: 10) {
+                            Image("moon")
+                        }
                     }
+                   
+                    NavigationLink(
+                        destination: ReminderScreen(),
+                        label: {
+                            Image("info")
+                        })
                 }
             }
             .onAppear {

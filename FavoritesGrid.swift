@@ -16,7 +16,7 @@ struct FavoritesGrid: View {
     ]
     
     var body: some View {
-        ScrollView(.horizontal) {
+        ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: gridRows) {
                 ForEach(favoriteCountryCodesList, id: \.self) { countryCode in
                     FavoriteGridCell(countryCode: countryCode, countryCovidStats: covidStatsData.countries.first(where: {countryCode == $0.countryCode}) ?? CovidStatisticsService.mockCovidStatsData.countries.first! )
