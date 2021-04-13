@@ -58,7 +58,6 @@ struct GeneralStatsScreen: View {
                     self.covidStatsData = covidStatsData
                 }
             }
-            
         }
         .preferredColorScheme(isDarkMode ? .dark : .light)
         .accentColor(Color("CommonTextColor"))

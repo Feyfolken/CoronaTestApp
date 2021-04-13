@@ -17,12 +17,61 @@ struct ReminderData: Identifiable {
 }
 
 struct ReminderScreen: View {
+    
+    var body: some View {
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [Color("AppBackgroundDarkerColor"),
+                                                       Color("AppBackgroundLighterColor"),
+                                                       Color("AppBackgroundDarkerColor")]),
+                           startPoint: .bottomLeading,
+                           endPoint: .topTrailing)
+                .edgesIgnoringSafeArea(.bottom)
+            
+            ScrollView {
+                ReminderTextInfoView()
+                    .padding(.top, 40)
+                
+                ScrollableCardsGrid()
+            }
+        }.navigationTitle("Important to remember")
+    }
+}
+
+struct ReminderScreen_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        ReminderScreen()
+    }
+}
+
+struct ReminderTextInfoView: View {
+    
+    var body: some View {
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [Color("InfoViewDarkerColor"),
+                                                        Color("InfoViewLighterColor")]),
+                            startPoint: .leading,
+                            endPoint: .trailing)
+                 .frame(width: 350, height: 190)
+                 .cornerRadius(42)
+            
+            Text("To protect yourself and others, use verified information about the disease and take the necessary prevention measures.  Follow the recommendations of local health authorities.")
+                .font(.custom("Kefa", size: 20))
+                .foregroundColor(Color("CommonTextColor"))
+                .frame(width: 320, height: 180)
+                .multilineTextAlignment(.center)
+        }
+    }
+}
+
+struct ScrollableCardsGrid: View {
     let reminderData = [ReminderData(titleText: "Wear a mask!",
                                      image: Image("wear-a-mask")),
                         ReminderData(titleText: "Wash your hands!",
                                      image: Image("washing-hands")),
                         ReminderData(titleText: "Maintain social distancing!",
                                      image: Image("social-distancing"))]
+    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 20) {
@@ -38,16 +87,7 @@ struct ReminderScreen: View {
             }
             .padding(30)
             .padding(.bottom, 30)
+            .padding(.top, 30)
         }
-        Spacer()
     }
 }
-
-struct ReminderScreen_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        ReminderScreen()
-    }
-}
-
-
